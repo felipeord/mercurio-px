@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for mercurio-px on 2024-02-23T01:30:08-05:00
+# fly.toml app configuration file generated for mercurio-phx on 2024-02-23T01:43:02-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'mercurio-px'
+app = 'mercurio-phx'
 primary_region = 'bog'
 kill_signal = 'SIGTERM'
 
@@ -13,7 +13,7 @@ kill_signal = 'SIGTERM'
   release_command = '/app/bin/migrate'
 
 [env]
-  PHX_HOST = 'mercurio-px.fly.dev'
+  PHX_HOST = 'mercurio-phx.fly.dev'
   PORT = '8080'
 
 [http_service]

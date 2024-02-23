@@ -281,9 +281,4 @@ defmodule MercurioWeb.NegotiationLive do
   def handle_params(_, _, socket) do
     {:noreply, socket}
   end
-
-  @impl true
-  def handle_event("submit", params, socket) do
-    {:noreply, socket}
-  end
 end

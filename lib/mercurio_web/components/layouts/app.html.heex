@@ -1,32 +1,147 @@
-<header class="px-4 sm:px-6 lg:px-8 bg-mint-2">
-  <div class="flex items-center justify-between py-3 text-sm border-b border-zinc-100">
-    <div class="flex items-center gap-4">
-      <a href="/">
-        <img src={~p"/images/logo.svg"} width="36" />
-      </a>
-      <p class="px-2 font-medium leading-6 rounded-full bg-brand/5 text-brand">
-        v<%= Application.spec(:phoenix, :vsn) %>
-      </p>
-    </div>
-    <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
-      <%!-- <a href="https://twitter.com/elixirphoenix" class="hover:text-zinc-700">
-        @elixirphoenix
-      </a>
-      <a href="https://github.com/phoenixframework/phoenix" class="hover:text-zinc-700">
-        GitHub
-      </a>
-      <a
-        href="https://hexdocs.pm/phoenix/overview.html"
-        class="px-2 py-1 rounded-lg bg-zinc-100 hover:bg-zinc-200/80"
-      >
-        Get Started <span aria-hidden="true">&rarr;</span>
-      </a> --%>
+<header class="sticky top-0 z-50 flex flex-wrap items-center justify-between transition duration-500 bg-white shadow-md shadow-slate-900/5 sm:px-6 lg:px-8">
+  <div class="flex items-center justify-between flex-1 w-full px-4 py-3 mx-auto max-w-7xl">
+    <a href="/">
+      <img src="logo2x.png" alt="Mercurio log" class="h-8" />
+    </a>
+    <div class="flex gap-2">
+      <ul class="flex items-center gap-4">
+        <!-- <li>
+          <Link href="acreedores" intent="regular">Acreedores</Link>
+        </li>
+        <li><Link href="acreedores" intent="regular">Deudores</Link></li> -->
+        <li></li>
+        <li></li>
+      </ul>
     </div>
   </div>
 </header>
+
 <main class="px-4 py-12 sm:px-6 md:px-8 lg:px-16">
   <div class="mx-auto max-w-7xl">
     <.flash_group flash={@flash} />
     <%= @inner_content %>
   </div>
 </main>
+
+<div class="w-full bg-white">
+  <footer class="w-full px-6 mx-auto mt-24 max-w-7xl sm:mt-32 lg:mt-40 lg:px-8">
+    <div class="max-w-2xl mx-auto lg:max-w-none">
+      <div style="opacity: 1; transform: none;">
+        <div class="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
+          <nav>
+            <ul role="list" class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+              <li>
+                <div class="text-sm font-semibold tracking-wider font-display text-neutral-950">
+                  Servicios
+                </div>
+                <ul role="list" class="mt-4 text-sm text-neutral-700">
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="/work/family-fund">
+                      Evaluación
+                    </a>
+                  </li>
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="/work/unseal">
+                      Viabilidad
+                    </a>
+                  </li>
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="/work/phobia">
+                      Reestructuración
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="text-sm font-semibold tracking-wider font-display text-neutral-950">
+                  Empresa
+                </div>
+                <ul role="list" class="mt-4 text-sm text-neutral-700">
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="/about">Acerca de</a>
+                  </li>
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="/process">Procesos</a>
+                  </li>
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="/blog">Blog</a>
+                  </li>
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="/contact">Contacto</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="text-sm font-semibold tracking-wider font-display text-neutral-950">
+                  Contacto
+                </div>
+                <ul role="list" class="mt-4 text-sm text-neutral-700">
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="https://facebook.com">
+                      Facebook
+                    </a>
+                  </li>
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="https://instagram.com">
+                      Instagram
+                    </a>
+                  </li>
+                  <li class="mt-4">
+                    <a class="transition hover:text-neutral-950" href="https://twitter.com">
+                      Twitter
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <div class="flex lg:justify-end">
+            <form class="max-w-sm">
+              <h2 class="text-sm font-semibold tracking-wider font-display text-neutral-950">
+                Suscribirse
+              </h2>
+              <p class="mt-4 text-sm text-neutral-700">
+                Reciba noticias e información de interés de nuestros expertos en
+                insolvencia.
+              </p>
+              <div class="relative mt-6">
+                <input
+                  type="email"
+                  placeholder="Dirección de correo"
+                  autocomplete="email"
+                  aria-label="Dirección de correo"
+                  class="block w-full py-4 pl-6 pr-20 transition bg-transparent border rounded-2xl border-neutral-300 text-base/6 text-neutral-950 ring-4 ring-transparent placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5"
+                />
+                <div class="absolute flex justify-end inset-y-1 right-1">
+                  <button
+                    type="submit"
+                    aria-label="Submit"
+                    class="flex items-center justify-center h-full text-white transition aspect-square rounded-xl bg-mint-12 hover:bg-mint-12/90"
+                  >
+                    <svg viewBox="0 0 16 6" aria-hidden="true" class="w-4">
+                      <path
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M16 3 10 .5v2H0v1h10v2L16 3Z"
+                      >
+                      </path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-end justify-between pt-12 mt-24 mb-20 border-t gap-x-6 gap-y-4 border-neutral-950/10">
+          <a aria-label="Home" href="/">
+            <img src="/logo2x.png" class="w-auto h-10" />
+          </a>
+          <p class="text-sm text-neutral-700">
+            © Plataforma Mercurio. <!-- -->2023
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
