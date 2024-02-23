@@ -69,7 +69,10 @@ defmodule MercurioWeb.Router do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
 
-      live "/negotiation", NegotiationLive, :show
+      live "/negotiation/payment", NegotiationLive, :payment
+      live "/negotiation/documents", NegotiationLive, :documents
+      live "/negotiation/viability", NegotiationLive, :viability
+      live "/negotiation/meetings", NegotiationLive, :meetings
     end
   end
 
