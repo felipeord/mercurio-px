@@ -55,15 +55,15 @@
     </ul>
     <%= @inner_content %>
 
-    <script
-      src="https://checkout.wompi.co/widget.js"
-      data-render="button"
-      data-public-key="pub_test_X0zDA9xoKdePzhd8a0x9HAez7HgGO2fH"
-      data-currency="COP"
-      data-amount-in-cents="4950000"
-      data-reference="4XMPGKWWPKWQ"
-      data-signature:integrity="37c8407747e595535433ef8f6a811d853cd943046624a0ec04662b17bbf33bf5"
-    >
+    <script>
+      let checkout = new WidgetCheckout({
+        currency: 'COP',
+        amountInCents: 2490000,
+        reference: 'AD002901221',
+        publicKey: 'pub_fENJ3hdTJxdzs3hd35PxDBSMB4f85VrgiY3b6s1',
+        signature: {integrity : '3a4bd1f3e3edb5e88284c8e1e9a191fdf091ef0dfca9f057cb8f408667f054d0'},
+
+      })
     </script>
   </body>
 </html>

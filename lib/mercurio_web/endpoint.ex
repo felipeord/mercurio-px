@@ -49,5 +49,6 @@ defmodule MercurioWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug Corsica, origins: "*"
   plug MercurioWeb.Router
 end
