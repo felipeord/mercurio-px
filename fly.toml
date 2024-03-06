@@ -14,7 +14,8 @@ kill_signal = 'SIGTERM'
 
 [env]
   PHX_HOST = 'mercurio-phx.fly.dev'
-  PORT = '8080'
+  PORT = '8080'  
+  FLY_SCALE_TO_ZERO = "1h"
 
 [http_service]
   internal_port = 8080

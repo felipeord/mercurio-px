@@ -16,7 +16,7 @@ defmodule MercurioWeb.NegotiationLive do
             if(@live_action == :payment, do: "text-mint-11", else: "text-gray-600")
           ]}
         >
-          1. Pagar <.icon name="hero-chevron-right-solid" class="w-4 h-4 ml-2" />
+          1. Iniciar mandato <.icon name="hero-chevron-right-solid" class="w-4 h-4 ml-2" />
         </.link>
         <.link
           patch={~p"/negotiation/documents"}
@@ -26,6 +26,15 @@ defmodule MercurioWeb.NegotiationLive do
           ]}
         >
           2. Documentos <.icon name="hero-chevron-right-solid" class="w-4 h-4 ml-2" />
+        </.link>
+        <.link
+          patch={~p"/negotiation/report"}
+          class={[
+            "text-sm font-semibold",
+            if(@live_action == :report, do: "text-mint-11", else: "text-gray-600")
+          ]}
+        >
+          3. Informe <.icon name="hero-chevron-right-solid" class="w-4 h-4 ml-2" />
         </.link>
         <.link
           patch={~p"/negotiation/viability"}
@@ -48,16 +57,55 @@ defmodule MercurioWeb.NegotiationLive do
       </div>
 
       <%= if @live_action == :payment do %>
-        <div class="max-w-xl mt-8 space-y-6 ">
+        <div class="max-w-xl mt-8">
           <h2 class="text-xl font-semibold text-mint-12">
-            Realice su pago en Wompi
+            Mandato de negociación
           </h2>
-          <p class="mt-4 text-gray-700">
-            En el siguiente link podrás realizar el pago para continuar con el proceso de negociación.
+          <p class="mt-2 text-gray-700">
+            Hemos realizado una evaluación inicial de su empresa
+            y determinamos que el proceso de reestructuración es <span class="font-bold text-mint-11">viable</span>.
           </p>
 
+          <h3 class="mt-4 text-base font-semibold text-mint-12">
+            Siguientes pasos
+          </h3>
+
+          <p class="mt-2 text-gray-700">
+            Una vez realizado /docuel pago en la plataforma Mercurio dará comienzo al proceso formal con las siguientes acciones:
+          </p>
+
+          <div class="mt-6 space-y-6">
+            <div class="flex flex-col">
+              <div class="flex items-center gap-4">
+                <div>
+                  <.icon name="hero-chevron-double-right-solid" class="w-8 h-8 text-mint-12" />
+                </div>
+                <p class="text-gray-700">
+                  Designación de un negociador experto para liderar el proceso de reestructuración.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <div class="flex items-center gap-4">
+                <div>
+                  <.icon
+                    name="hero-chevron-double-right-solid"
+                    class="flex-grow w-8 h-8 text-mint-12"
+                  />
+                </div>
+
+                <p class="text-gray-700">
+                  Se emitirá una comunicación por parte de Mercurio a los acreedores para notificarles del proceso en curso y prevenir acciones legales en contra de la empresa.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-4 text-gray-700">
+            Por favor realice el pago en el siguiente link para dar inicio formal al proceso.
+          </p>
           <a
-            class="waybox-button"
+            class="mt-4 waybox-button"
             href="https://checkout.wompi.co/p/?public-key=pub_test_X0zDA9xoKdePzhd8a0x9HAez7HgGO2fH&currency=COP&amount-in-cents=7890000&reference=37DNKF84S92N1S&signature%3Aintegrity=37c8407747e595535433ef8f6a811d853cd943046624a0ec04662b17bbf33bf5"
           >
             Paga con Wompi
@@ -82,18 +130,23 @@ defmodule MercurioWeb.NegotiationLive do
           </h2>
 
           <p class="mt-6 text-gray-700">
-            Por favor diríjase a nuestro aliado de almacenamiento de documentos para cargar los siguientes archivos y continuar con el proceso de diagnóstico.
+            Para determinar la viabilidad de su empresa habilitamos un <i>cuarto de datos</i>
+            seguro para el intercambio de documentos relevantes al proceso.
+          </p>
+
+          <p class="mt-6 text-gray-700">
+            Una vez dentro de <strong>Datasite</strong> se le solicitarán la siguiente información:
           </p>
 
           <ul class="flex flex-col gap-2 pl-8 list-disc">
             <li class="text-gray-600">
-              Declaración juramentada
+              Sobreendeudamiento
             </li>
             <li class="text-gray-600">
-              Estados de cuenta
+              Activos adicionales
             </li>
             <li class="text-gray-600">
-              Registro
+              Pasivos por retenciones
             </li>
           </ul>
           <div class="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
@@ -127,6 +180,68 @@ defmodule MercurioWeb.NegotiationLive do
         </div>
       <% end %>
 
+      <%= if @live_action == :report do %>
+        <div class="max-w-xl mt-8 space-y-6 ">
+          <h2 class="text-xl font-semibold text-mint-12">
+            Informe inicial del negociador
+          </h2>
+
+          <p class="mt-6 text-gray-700">
+            El proceso de reestructuración ha comenzado y hemos designado un negociador a cargo.
+          </p>
+          <h3 class="mt-4 text-base font-semibold text-mint-12">
+            Negociador encargado
+          </h3>
+          <div class="flex items-center gap-x-6">
+            <div class="flex items-center justify-center w-16 h-16 rounded-full bg-mint-2">
+              <.icon name="hero-user-solid" class="w-8 h-8 text-mint-11" />
+            </div>
+
+            <div>
+              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">
+                Nicolás Polanía
+              </h3>
+              <p class="text-sm font-semibold leading-6 text-gray-600">
+                Socio / DLA Piper
+              </p>
+            </div>
+          </div>
+          <p class="mt-6 text-gray-700">
+            El negociador realizará un análisis detallado de la situación de su empresa a partir de los documentos cargados en
+            <i>Datasite.</i>
+          </p>
+
+          <p class="mt-6 text-gray-700">
+            Una vez realizado el informe le será notificado a su correo electrónico y podrá encontrarlo dentro de esta plataforma.
+          </p>
+
+          <div class="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
+            <div class="text-center">
+              <.icon name="hero-document-arrow-down-solid" class="w-16 h-16 text-mint-6" />
+
+              <div class="flex mt-4 text-sm leading-6 text-gray-600">
+                <label
+                  for="file-upload"
+                  class="relative font-semibold bg-white rounded-md cursor-pointer text-mint-11 focus-within:outline-none focus-within:ring-2 focus-within:ring-mint-11 focus-within:ring-offset-2 hover:text-mint-12"
+                >
+                  <span>Descargar</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12">
+          <.link
+            patch={~p"/negotiation/meetings"}
+            class="inline-flex items-center justify-center h-12 px-4 py-2 text-white rounded bg-mint-12"
+          >
+            Continuar
+          </.link>
+
+          <%!-- Bien --> Link a datasite y pasos a seguir --%>
+          <%!-- Mal --> Posibilidad de apelar --%>
+        </div>
+      <% end %>
       <%= if @live_action == :viability do %>
         <div class="max-w-xl mt-8 space-y-6 ">
           <h2 class="text-xl font-semibold text-mint-12">

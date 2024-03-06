@@ -73,6 +73,7 @@ defmodule MercurioWeb.Router do
       live "/negotiation/documents", NegotiationLive, :documents
       live "/negotiation/viability", NegotiationLive, :viability
       live "/negotiation/meetings", NegotiationLive, :meetings
+      live "/negotiation/report", NegotiationLive, :report
     end
   end
 
